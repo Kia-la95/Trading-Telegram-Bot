@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = "your_twelvedata_api_key"
+API_KEY = "068070ffbcf34c0995ce2921f3ba223b"
 
 def get_xauusd_data():
     url = "https://api.twelvedata.com/time_series"
