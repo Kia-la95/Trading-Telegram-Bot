@@ -20,6 +20,10 @@ def send_telegram_message(text: str) -> None:
     response = requests.post(url, json=payload, timeout=10)
     response.raise_for_status()
 
+@app.get("/")
+def root():
+    return {"status": "ok"}  
+
 @app.post("/webhook/tradingview")
 async def tradingview_webhook(request: Request):
     data = await request.json()
