@@ -2,6 +2,7 @@ import os
 import requests
 from fastapi import FastAPI, HTTPException, Request
 from dotenv import load_dotenv
+from market_data import get_xauusd_data
 
 load_dotenv()
 
@@ -22,7 +23,11 @@ def send_telegram_message(text: str) -> None:
 
 @app.get("/")
 def root():
-    return {"status": "ok"}  
+    return {"status": "ok"}
+
+@app.get("/test-data")
+def test_data():
+    return get_xauusd_data()  
 
 @app.post("/webhook/tradingview")
 async def tradingview_webhook(request: Request):
